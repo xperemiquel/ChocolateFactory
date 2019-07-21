@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  webapp:
+    build: ./webapp
+    ports: 
+      - "8000:8000"
+    volumes:
+    - ./webapp:/code
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+  mongodb:
+    image: mongo:latest
+    ports:
+    - 27017:27017
+    volumes:
+    - db-data:/data/db
+    - mongo-config:/data/configdb

@@ -17,8 +17,8 @@ class OompaLoompaViewSet(ModelViewSet):
     http_method_names = ('get', 'post', 'put', 'patch')
     
     def list(self, request):
-        queryset = OompaLoompa.objects.all().only('name', 'age', 'job') # better performance
-        paginated_queryset = self.paginate_queryset(queryset)
+        queryset = OompaLoompa.objects.all().only('name', 'age', 'job')
+        paginated_queryset = self.paginate_queryset(queryset) # pagination config in settings.py
         serializer = OompaLoompaListSerializer(paginated_queryset, many=True)
         return self.get_paginated_response(serializer.data)
 
