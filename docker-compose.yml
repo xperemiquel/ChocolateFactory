@@ -4,7 +4,7 @@ services:
   webapp:
     build: ./webapp
     ports: 
-      - "8000:8000"
+      - 8000:8000
     volumes:
     - ./webapp:/code
     command: >
